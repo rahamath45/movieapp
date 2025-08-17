@@ -1,1 +1,25 @@
-
+.app{
+    padding: 1rem;
+    background:#ccc;
+}
+.link{
+    color: #222;
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 1rem;
+    position: relative;
+    bottom:5px;
+}
+.card{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    gap:1rem;
+    margin-top: 1rem;
+}
+img{
+    width:150px;
+    object-fit: contain;
+}
+.bottom{
+       margin-top: 1rem;
+}
