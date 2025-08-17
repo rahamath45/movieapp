@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom"
+import {  useNavigate, useSearchParams } from "react-router-dom"
 import { API_KEY, REST_HOST_API } from "../backend";
 
 export default function  Search(){
-
+    const navigate = useNavigate();
     const [params,setParams] = useSearchParams();
     const q = params.get("q") || "" ;
     const page = +params.get("page") || 1;
@@ -24,12 +24,12 @@ export default function  Search(){
     },[q,page,type]);
     return(
          <> 
-           <div style={{padding:"1rem"}}>
+           <div className="searchpage">
             <form onSubmit={e =>{
                 e.preventDefault();
                 setParams({q:e.target.q.value,page:"1",type})
             }}>
-                <input name="q" defaultValue={q} placeholder="Search Your Favourite..."/>
+                <input name="q" defaultValue={q} placeholder="Search Your Favourite..." type="search"/>
                 <select value={type} onChange={e => setParams({q,page:"1",type:e.target.value})}>
                  <option value="movie">Movie</option>
                  <option value="series">Series</option>
@@ -39,16 +39,16 @@ export default function  Search(){
             </form>
             <div className="card">
                {data.map(m => (
-                <Link key={m.imdbID} to={`/movie/${m.imdbID}`} style={{textAlign:"center"}}>
+                <div key={m.imdbID} onClick={()=>navigate(`/movie/${m.imdbID}`)} style={{textAlign:"center",cursor:"pointer"}}>
                     <img src={m.Poster}/>
                     <p>{m.Title}({m.Year})</p>
-                </Link>
+                </div>
                ))}
             </div>
              {total >10 && (
                 <div className="bottom">
-                    <button disabled={page<=1} onClick={()=>setParams({q,type,page:page-1})}>Previous</button>
-                    <span>page{page}</span>
+                    <button disabled={page<=1} onClick={()=>setParams({q,type,page:page-1})}>Previous </button> 
+                    <span> page{page} </span>
                     <button disabled={page>= Math.ceil(total/10)} onClick={()=>setParams({q,type,page:page+1})}>Next</button>
                 </div>
              )}

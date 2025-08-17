@@ -1,20 +1,17 @@
 
-import LiveTvIcon from '@mui/icons-material/LiveTv';
+
 import './App.css'
-import { Link, Route, Routes } from 'react-router-dom'
+import {  Route, Routes } from 'react-router-dom'
 import Search from './pages/Search';
 import Details from './pages/Details';
+import Nav from './pages/Nav';
 
 function App() {
  
 
   return (
     <>
-      <nav className='app'>
-        <LiveTvIcon></LiveTvIcon>
-           <Link to="/" className='link'>OMDb Movie
-           </Link>
-      </nav>
+          <Nav/>
           <Routes>
             <Route exact path="/" element={<Search/>} />
             <Route path="/movie/:id" element={<Details/>} />

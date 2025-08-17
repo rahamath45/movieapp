@@ -1,25 +1,93 @@
 .app{
     padding: 1rem;
     background:#ccc;
-}
-.link{
-    color: #222;
+     color: #222;
     font-weight: bolder;
     font-size: 30px;
     padding: 1rem;
-    position: relative;
-    bottom:5px;
+    display: flex;
+    gap:1rem; 
 }
+.link{
+    cursor: pointer;
+}
+form{
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+    gap:1rem;
+}
+.searchpage{ 
+    height:1000px;
+      background-color: azure;
+}
+
 .card{
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
     gap:1rem;
     margin-top: 1rem;
 }
 img{
-    width:150px;
+    width:200px;
     object-fit: contain;
 }
 .bottom{
        margin-top: 1rem;
+}
+input{
+    width:600px;
+    padding: 8px;
+    border-radius: 6px;
+}
+select{
+    width:150px;
+}
+button{
+    padding: 5px;
+    width:100px;
+    color:#fff;
+    background: blue;
+    border: none;
+}
+.bottom{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+}
+.details{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap:1.5rem;
+    background-color: azure;
+    height: 1000px;
+    justify-content: center;
+}
+.left{
+    width:400px;
+    height:400px;
+    text-align: center;
+    margin-top: 10px;
+}
+.right{
+    width:600px;
+    height:400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+.back{
+    position: relative;
+    bottom:3px;
+    right:20px;
+    font-weight:bolder;
+    font-size: 22px;
+}
+.left img{
+    width:300px;
+}
+.right p{
+    font-size: 20px;
 }
